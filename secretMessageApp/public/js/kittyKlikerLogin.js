@@ -1,3 +1,10 @@
+console.log("gottem");
+const messageDiv = document.querySelector("#message");
+let errorNum = 0;
+let boxNum = 0;
+var delayInMilliseconds = 3000;
+// clownery
+
 function hashing(pwd) {
   var hash = 0, i, chr;
   if (pwd.length === 0) return hash;
@@ -20,12 +27,15 @@ function getMessages() {
 
 function validateMessages(messages){
     const passcodeAttempt = document.querySelector("#passcode").value
+    const usernameAttempt = document.querySelector("#username").value
     let found = false;
     for (message in messages) {
         const messageData = messages[message]
-        if (messageData.passcode == hashing(passcodeAttempt)) {
-            sessionStorage.setItem("username", message);
-
+        console.log(hashing(passcodeAttempt), usernameAttempt);
+        console.log(messageData.passcode, messageData.message);
+        if (messageData.passcode == hashing(passcodeAttempt) && messageData.message === usernameAttempt) {
+            sessionStorage.setItem("username", messageData.message);
+            window.location.href = "kittyKliker.html";
             found = true;
         }
     }
@@ -41,26 +51,4 @@ function validateMessages(messages){
             errorNum = 0;
         }
     }
-}
-
-function renderMessageAsHtml(messageContent) {
-     // Hide Input Form
-    const passcodeInput = document.querySelector('#passcodeInput');
-    document.querySelector("#passcode").value = "";
-
-    let random_top = ` ${Math.floor(Math.random() * 80) + 7}%`
-    let random_left = ` ${Math.floor(Math.random() * 80)}%`
-
-    let random_id = `id_${Math.floor(Math.random() * 1000)}`
-    let random_color = colors[`${Math.floor(Math.random() * 7)}`]
-
-    document.querySelector(".hero").innerHTML += `<article class="message ${random_color}" id="${random_id}" style="position: fixed; width: 20% !important; text-align: center; top: ${random_top}; left: ${random_left};">
-                                                        <div class="message-header">
-                                                            <p>Message</p>
-                                                            <button class="delete" id="${random_id}" aria-label="delete" onClick="deleteButton(this.id)"></button>
-                                                        </div>
-                                                        <div class="message-body" id="message">
-                                                            ${messageContent}
-                                                        </div>
-                                                    </article>`;
 }

@@ -1,5 +1,5 @@
 head = `
-    <title>Secret Messaging App</title>`;
+    <title>Kitty Kliker <3</title>`;
 
 navBar = `
       <div class="navbar-menu is-active">

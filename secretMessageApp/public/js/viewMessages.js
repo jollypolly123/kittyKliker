@@ -30,7 +30,6 @@ function getMessages() {
         const messages = snapshot.val();
         validateMessages(messages);
     })
-
 }
 
 

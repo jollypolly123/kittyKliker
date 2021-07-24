@@ -8,9 +8,9 @@
   --shadowLight: #EFF5FE;
 }
 
-body {
+/* body {
   background: var(--background);
-}
+} */
 
 .hero-body {
   justify-content: center;
@@ -50,4 +50,34 @@ hr {
   width: 100%;
   background-color:#3298dc;
   height: 1px;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* adjust typography defaults */
+body {
+  margin: 1rem;
+  font-family: sans-serif;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+}
+
+#column1{
+  background-color: #dbecfc !important; 
+  margin-left: 12px;
+}
+
+#column2{
+  background-color: #ffdb65!important; 
+  margin-left: 12px;
+  margin-right: 12px;
 }
