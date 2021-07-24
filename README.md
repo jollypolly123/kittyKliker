@@ -1,1 +1,2 @@
-# cssi-mini-proj-2
+# Kitty Kliker
+Mini Project CSSI Week 2
